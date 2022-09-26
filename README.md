@@ -1,17 +1,23 @@
-# Azure Machine Learning Responsible AI Tools (Private Preview) 
-This is a repository that holds information about the private preview of Azure Machine Learning's Responsible AI and model evaluations tools.
+# Azure Machine Learning Responsible AI Tools in Private Preview
+This is a repository that holds information about the private previews of Azure Machine Learning's Responsible AI and model evaluations tools.
+
+Implementing Responsible AI in practice requires rigorous engineering. But rigorous engineering can be tedious, manual, and time-consuming without the right tooling and infrastructure. Azure Machine Learning provides a comprehensive dashboard, called Responsible AI dashboard,to help you implement Responsible AI in practice effectively and efficiently. It brings together several mature model assessment and understanding tools in the areas of model performance analysis, error analysis, data exploration, model interpretability, model fairness assessment, and what-if perturbation and counterfactual analysis.
+
+Please see [this concept doc](https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai-dashboard) to learn more about the model assessment tools supported within the Responsible AI dashboard.
+
 
 ## Currently in Private Preview (HERE)
 
 **private preview**|**description**
 -|-
-Responsible AI dashboard for text data|Assess and understand your NLP models, starting with text multi-class classification scenarios.
-Responsible AI dashboard for image data|Assess and understand your NLP models, starting with image multi-class classification scenarios.
+Responsible AI dashboard for text data|Assess and understand your NLP models, currently supporting text multi-class classification scenarios.
+Responsible AI dashboard for image data|Assess and understand your NLP models, currently supporting image multi-class classification scenarios.
 ## Currently in Public Preview
 
 **public preview**|**description**
 -|-
-[Responsible AI dashboard for tabular data](https://github.com/Azure/RAI-vNext-Preview)|Responsible AI dashboard supporting regression and classification models trained on tabular data.
+[Responsible AI dashboard for tabular data](https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai-dashboard)|Responsible AI dashboard supporting regression and classification models trained on tabular data. Please see how you can generate a dashboard [via Azure ML's SDK/CLI](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-responsible-ai-dashboard-sdk-cli?tabs=yaml) or via [Azure ML studio UI](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-responsible-ai-dashboard).
+[Responsible AI scorecard for tabular data](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-responsible-ai-scorecard)|Responsible AI scorecard is a PDF report you can easily configure, generate, download, and share with your technical and non-technical stakeholders to educate them about your data and model health and compliance, and to help build trust. You can also use the scorecard in audit reviews to inform the stakeholders about the characteristics of your model.
 
 ## ❗Important
 
