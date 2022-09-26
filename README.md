@@ -1,14 +1,54 @@
-# Project
+# Azure Machine Learning Responsible AI Tools (Private Preview) 
+This is a repository that holds information about the private preview of Azure Machine Learning's Responsible AI and model evaluations tools.
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+## Currently in Private Preview (HERE)
 
-As the maintainer of this project, please make a few updates:
+**private preview**|**description**
+-|-
+Responsible AI dashboard for text data|Assess and understand your NLP models, starting with text multi-class classification scenarios.
+Responsible AI dashboard for image data|Assess and understand your NLP models, starting with image multi-class classification scenarios.
+## Currently in Public Preview
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+**public preview**|**description**
+-|-
+[Responsible AI dashboard for tabular data](https://github.com/Azure/RAI-vNext-Preview)|Responsible AI dashboard supporting regression and classification models trained on tabular data.
+
+## ❗Important
+
+**Features contained in this repository are in private preview. Preview versions are provided without a service level agreement, and they are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).**
+
+## Prerequisites
+
+1. An Azure subscription. If you don't have an Azure subscription, [create a free account](https://aka.ms/AMLFree) before you begin.
+2. A terminal. [Install and set up the CLI (v2)](https://docs.microsoft.com/azure/machine-learning/how-to-configure-cli) before you begin.
+
+
+
+## 👋 Introduction
+
+
+## ⚙️ Setup
+
+In this section you will learn how to set-up and configure an AzureML Managed Spark cluster in your AzureML workspace. 
+
+
+
+## 🎓 Learn
+
+Below are some sample notebooks:
+
+- ...
+
+## 🛣️ Coming soon
+
+⭐ Support for text multi-label and binary classification models.<br>
+⭐ Support for image multi-label and binary classification models.<br>
+⭐ Support for image object detections models.<br>
+⭐ AutoML Computer Vision and AutoML NLP integrations.<br>
+
+
+## ✉️ Feedback and Support
+If you have feedback or require support during this private preview, please send us an [email](mailto:mesameki@microsoft.com).
 
 ## Contributing
 
