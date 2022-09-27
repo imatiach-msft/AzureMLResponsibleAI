@@ -1,0 +1,39 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+experiment_name: AML_RAI_Text_Sample_1
+type: pipeline
+
+compute: azureml:cpucluster
+
+inputs:
+  registered_model_name: hf_model
+  hf_model_info: hf_model_1:1
+
+settings:
+  default_datastore: azureml:workspaceblobstore
+  default_compute: azureml:cpucluster
+  continue_on_step_failure: false
+
+jobs:
+  fetch_data_job:
+    type: command
+    component: azureml:fetch_text_data:1
+
+  analyse_model:
+    type: command
+    component: azureml:rai_text_insights:1
+    inputs:
+      task_type: text_classification
+      model_input:
+        type: mlflow_model
+        path: azureml:hf_model_1:1
+      model_info: ${{parent.inputs.hf_model_info}}
+      train_dataset:
+        type: mltable
+        path: ${{parent.jobs.fetch_data_job.outputs.train_data}}
+      test_dataset:
+        type: mltable
+        path: ${{parent.jobs.fetch_data_job.outputs.test_data}}
+      target_column_name: emotion
+      maximum_rows_for_test_dataset: 5000
+      classes: '[]'
+      enable_explanation: True

@@ -1,0 +1,42 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+experiment_name: AML_RAI_Vision_Sample_2
+type: pipeline
+
+compute: azureml:cpucluster
+
+identity:
+  type: user_identity
+
+inputs:
+  registered_model_name: vision_model
+  vision_model_info: vision_model_1:1
+
+settings:
+  default_datastore: azureml:workspaceblobstore
+  default_compute: azureml:cpucluster
+  continue_on_step_failure: false
+
+jobs:
+  fetch_data_job:
+    type: command
+    component: azureml:fetch_image_url_data:1
+
+  analyse_model:
+    type: command
+    component: azureml:rai_vision_insights:1
+    inputs:
+      task_type: image_classification
+      model_input:
+        type: mlflow_model
+        path: azureml:vision_model_1:1
+      model_info: ${{parent.inputs.vision_model_info}}
+      train_dataset:
+        type: mltable
+        path: ${{parent.jobs.fetch_data_job.outputs.train_data}}
+      test_dataset:
+        type: mltable
+        path: ${{parent.jobs.fetch_data_job.outputs.test_data}}
+      target_column_name: label
+      maximum_rows_for_test_dataset: 5000
+      classes: '[]'
+      model_type: fastai
