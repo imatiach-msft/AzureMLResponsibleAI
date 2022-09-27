@@ -1,0 +1,23 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+experiment_name: AML_RAI_Vision_Sample_2
+type: pipeline
+
+compute: azureml:cpucluster
+
+inputs:
+  registered_model_name: vision_model
+  model_suffix: 1
+
+settings:
+  default_datastore: azureml:workspaceblobstore
+  default_compute: azureml:cpucluster
+  continue_on_step_failure: false
+
+jobs:
+  train_model_job:
+    type: command
+    component: azureml:fetch_image_model:1
+    inputs:
+      model_base_name: ${{parent.inputs.registered_model_name}}
+      model_name_suffix: ${{parent.inputs.model_suffix}}
+      device: -1

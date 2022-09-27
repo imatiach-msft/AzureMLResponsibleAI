@@ -35,9 +35,88 @@ Responsible AI dashboard for image data|Assess and understand your NLP models, c
 
 ## ⚙️ Setup
 
-In this section you will learn how to set-up and configure an AzureML Managed Spark cluster in your AzureML workspace. 
+In this section you will learn how to run one AzureML pipeline to register a model and another pipeline to create an RAI dashboard for text and image data.
+
+In your azureml workspace, please create an AMLCompute CPU cluster called "cpucluster". This cluster will be used to run the CPU jobs submitted.
+
+To run the DPv2 components, please first run az login:
+
+```
+az login
+```
+
+Then, we can setup an environment:
+
+```
+conda create -y -n dpv2 python=3.8
+conda activate dpv2
+```
+
+We can install the azure-cli and azure-ai-ml packages to submit jobs to AzureML workspaces:
+
+```
+pip install azure-cli
+pip install azure-ai-ml
+```
 
 
+The az extension will need to be installed using:
+
+```
+az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/ml-latest-py3-none-any.whl --yes
+```
+
+The extension can then be updated using:
+
+```
+az extension update -n ml
+```
+
+You can also check the az extension version using:
+
+```
+az version
+```
+
+You will need to set the subscription id where you will be submitting the job to:
+
+```
+az account set -s $SubId
+```
+
+Navigate to the CLI directory in the examples folder:
+
+```
+cd examples\CLI
+```
+
+# Running DPv2 Text Components
+
+To submit the yaml jobs, please run the training yaml first to create the model:
+
+```
+az ml job create --file test_text_pipeline_train.yaml --workspace <YOUR_WORKSPACE> --resource-group <YOUR_RESOURCE_GROUP>
+```
+
+Then you can run the RAI pipeline to create the dashboard:
+
+```
+az ml job create --file test_text_pipeline_rai.yaml --workspace <YOUR_WORKSPACE> --resource-group <YOUR_RESOURCE_GROUP>
+```
+
+# Running DPv2 Vision Components
+
+To submit the yaml jobs, please run the training yaml first to create the model:
+
+```
+az ml job create --file test_vision_pipeline_train.yaml --workspace <YOUR_WORKSPACE> --resource-group <YOUR_RESOURCE_GROUP>
+```
+
+Then you can run the RAI pipeline to create the dashboard:
+
+```
+az ml job create --file test_vision_pipeline_rai.yaml --workspace <YOUR_WORKSPACE> --resource-group <YOUR_RESOURCE_GROUP>
+```
 
 ## 🎓 Learn
 
