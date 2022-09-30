@@ -19,11 +19,11 @@ settings:
 jobs:
   fetch_data_job:
     type: command
-    component: azureml:fetch_image_url_data:1
+    component: azureml://registries/AzureML-RAI-preview/components/fetch_image_url_data/versions/2
 
   analyse_model:
     type: command
-    component: azureml:rai_vision_insights:1
+    component: azureml://registries/AzureML-RAI-preview/components/rai_vision_insights/versions/2
     inputs:
       task_type: image_classification
       model_input:
@@ -39,4 +39,5 @@ jobs:
       target_column_name: label
       maximum_rows_for_test_dataset: 5000
       classes: '[]'
+      precompute_explanation: True
       model_type: fastai

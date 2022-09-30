@@ -16,11 +16,11 @@ settings:
 jobs:
   fetch_data_job:
     type: command
-    component: azureml:fetch_text_data:1
+    component: azureml://registries/AzureML-RAI-preview/components/fetch_text_data/versions/2
 
   analyse_model:
     type: command
-    component: azureml:rai_text_insights:1
+    component: azureml://registries/AzureML-RAI-preview/components/rai_text_insights/versions/2
     inputs:
       task_type: text_classification
       model_input:
@@ -33,7 +33,8 @@ jobs:
       test_dataset:
         type: mltable
         path: ${{parent.jobs.fetch_data_job.outputs.test_data}}
-      target_column_name: emotion
+      target_column_name: label
       maximum_rows_for_test_dataset: 5000
       classes: '[]'
       enable_explanation: True
+      enable_error_analysis: True

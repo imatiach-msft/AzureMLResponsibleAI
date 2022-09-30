@@ -16,7 +16,7 @@ settings:
 jobs:
   train_model_job:
     type: command
-    component: azureml:hf_train:1
+    component: azureml://registries/AzureML-RAI-preview/components/hf_train/versions/2
     inputs:
       model_base_name: ${{parent.inputs.registered_model_name}}
       model_name_suffix: ${{parent.inputs.model_suffix}}
