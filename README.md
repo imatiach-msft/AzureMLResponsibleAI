@@ -32,6 +32,16 @@ Responsible AI dashboard for image data|Assess and understand your NLP models, c
 
 ## 👋 Introduction
 
+The Responsible AI dashboard is a single pane of glass bringing together, in a comprehensive view, various new and pre-existing tools for model assessment and debugging. The dashboard integrates these tools with [Azure Machine Learning CLI v2, Azure Machine Learning Python SDK v2](concept-v2.md), and [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). The components covered in the Responsible AI dashboard include:  
+
+- Data explorer, to understand and explore your dataset distributions and statistics.
+- Model overview and fairness assessment, to evaluate the performance of your model and evaluate your model's overall fairness issues (how your model's predictions affect diverse groups of people).
+- Error analysis, to view and understand how errors are distributed in your dataset.  
+- Model interpretability, to understand your model's predictions and how those overall and individual predictions are made.
+- Counterfactual what-if, to observe how feature perturbations would affect your model predictions.
+
+While our Responsible AI dashboard supporting tabular data scenarios (classification and regression models trained on tabular data) is currently in public preview in Azure Machine Learning, we have expanded the dashboard to be able to debug text and image classification scenarios. The dashboard currently covers multi-class classification scenarios on image and text data and will be expanded to include image and text multi-label and binary classification scenarios and image objection detection scenarios by early 2023. 
+
 
 ## ⚙️ Setup
 
@@ -122,7 +132,7 @@ az ml job create --file test_vision_pipeline_rai.yaml --workspace <YOUR_WORKSPAC
 
 Below are some sample notebooks:
 
-- ...
+- Coming soon! Please use the instructions above to generate the RAI dashboard with the sample YAML files provided in this repository.
 
 ## 🛣️ Coming soon
 
